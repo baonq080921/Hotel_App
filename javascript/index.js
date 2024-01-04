@@ -35,3 +35,18 @@ btns.forEach((btn,i) => {
         slideNav(i);
     })
 });
+
+// Get the logo element by its class
+const logo = document.querySelector('.vinpearlogo'); ; // Assuming there is only one element with the 'logo' class
+
+// Attach a click event listener to the logo
+logo.addEventListener('click', function(event) {
+    // Prevent the default behavior of the anchor tag (which is to navigate)
+    event.preventDefault();
+
+    // Scroll to the top of the page
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // You can use 'auto' or 'smooth' for a smooth scroll effect
+    });
+});

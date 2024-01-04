@@ -1,0 +1,271 @@
+*{
+    border: 0;
+    box-sizing: content-box;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    line-height: inherit;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    vertical-align: top;
+}
+/* Content edit table */
+
+*[contenteditable]{
+    border-radius: 0.25rem;
+    min-width: 1em;
+    outline: 0;
+}
+*[contenteditable]{
+    cursor: pointer;
+}
+*[contenteditable]:hover,
+*[contenteditable]:focus,
+td:hover *[contenteditable],
+td:focus *[contenteditable],
+img.hover{
+    background: #def;
+    box-shadow:  0 0 1em 0.5 em #def;
+}
+
+span[contenteditable]{
+    display: inline-block;
+}
+
+/* Heading */
+h1{
+    font: bold 100% sans-serif;
+    letter-spacing: 0.5em;
+    text-align: center;
+    text-transform: uppercase;
+}
+table{
+    font-size: 75%;
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 2px;
+}
+
+th,td{
+    border-width: 0.25em;
+    border-style: solid;
+}
+th{
+    background: #eee;
+    border-color: #888;
+}
+td{
+    border-color: #ddd;
+}
+
+/* Page */
+html{
+    font: 16px/1 'Open Sans', sans-serif;
+    overflow: auto;
+    padding: 0.5in;
+    background: #999;
+    cursor: default;
+}
+body{
+    box-sizing: border-box;
+    height: 11in;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0.5in;
+    width: 8.5in;
+}
+body{
+    background: #fff;
+    border-radius: 1px;
+    box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
+}
+
+header{
+    margin: 0 0 3em;
+}
+
+header:after{
+    clear: both;
+    content: "";
+    display: table;
+}
+
+header h1{
+    background: #000;
+    border-radius: 0.25em;
+    color: #fff;
+    margin: 0 0 1em;
+    padding: 0.5em 0;
+}
+
+header address{
+    float: left;
+    font-size: 75%;
+    font-style: normal;
+    line-height: 1.25;
+    margin:  0 1em 1em 0;
+}
+
+header address p{
+    margin: 0 0 0.25em;
+}
+
+header span,
+header img{
+    display: block;
+    margin-left: 250px;
+    width: 50%;
+}
+
+header img{
+    max-width: 100%;
+    max-height: 100%;
+}
+header span{
+    margin: 0 0 1em 1em;
+    max-height: 25%;
+    max-width: 50%;
+    position: relative;
+}
+
+header input{
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+/* Article */
+article,
+article address,
+table.meta,
+table.inventory{
+    margin: 0 0 3em;
+}
+
+article:after{
+    content: "";
+    clear: both;
+    display: table;
+}
+/* article h1{
+    clip: rect(0 0 0 0);
+    position: absolute;
+} */
+
+/* Table meta & balance */
+
+table.meta,
+table.balance{
+    width: 40%;
+    float: right;
+}
+
+table.meta:after,
+table.balance:after{
+    clear: both;
+    content:"";
+    display: table;
+}
+/* table meta */
+table.meta th{
+    width: 40%;
+}
+table.meta td{
+    width: 60%;
+}
+
+/* table items */
+table .inventory{
+    clear: both;
+    width: 100%;
+}
+table .inventory th{
+    font-weight: bold;
+    text-align: center;
+}
+table.inventory td:nth-child(1){
+    width: 25%;
+}
+table.inventory td:nth-child(2){
+    width: 36%;
+}
+table.inventory td:nth-child(3){
+    text-align: right;
+    width: 12%;
+}
+table.inventory td:nth-child(4){
+    text-align: right;
+    width: 12%;
+}
+table.inventory td:nth-child(5){
+    text-align:  right;
+    width: 12%;
+}
+/* table balance */
+table.balance th,
+	table.balance td {
+		width: 50%;
+    }
+
+table.balance td {
+		text-align: right;
+}
+
+/* aside */
+aside h1{
+    border: none;
+    border-width: 0 0 1px;
+    padding-top: 50px;
+    margin: 0 0 1em;
+    border-color: #999;
+    border-bottom-style: solid;
+}
+
+.btns{
+    background-color: #fff;
+    width: 300px;
+    height: 40px;
+    float: right;
+}
+
+/* Apply these styles to your table */
+.signature {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.signature th, .signature td {
+    border: none; /* Remove borders from cells */
+    padding: 10px; /* Increase padding for better spacing */
+    font-size: 14px; /* Set the font size for text */
+    text-align: center;
+}
+
+/* Float the first column to the left */
+.signature th:first-child, .signature td:first-child {
+    text-align: left;
+}
+
+/* Float the second column to the right */
+.signature th:last-child, .signature td:last-child {
+    text-align: right;
+}
+
+/* Set the background color of tr elements to white */
+.signature th {
+    background-color: white;
+}
+
+
+
+
+
