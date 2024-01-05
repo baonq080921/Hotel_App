@@ -61,7 +61,6 @@ session_start();
 
                 <!-- // ==userlogin== -->
                 <?php
-session_start();
 
 if (isset($_POST['user_login_submit'])) {
     $Email = $_POST['Email'];
