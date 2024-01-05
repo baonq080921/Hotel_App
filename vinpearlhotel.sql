@@ -144,7 +144,7 @@ CREATE TABLE `signup` (
   `UserID` int(100) NOT NULL,
   `Username` varchar(50) NOT NULL,
   `Email` varchar(50) NOT NULL,
-  `Password` varchar(50) NOT NULL
+  `Password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
