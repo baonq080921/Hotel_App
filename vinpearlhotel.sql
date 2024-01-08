@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 10, 2022 at 11:19 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Host: localhost
+-- Generation Time: Jan 08, 2024 at 06:46 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bluebirdhotel`
+-- Database: `vinpearlhotel`
 --
 
 -- --------------------------------------------------------
@@ -31,7 +31,7 @@ CREATE TABLE `emp_login` (
   `empid` int(100) NOT NULL,
   `Emp_Email` varchar(50) NOT NULL,
   `Emp_Password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `emp_login`
@@ -61,14 +61,16 @@ CREATE TABLE `payment` (
   `meal` varchar(30) NOT NULL,
   `mealtotal` double(8,2) NOT NULL,
   `finaltotal` double(8,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `payment`
 --
 
 INSERT INTO `payment` (`id`, `Name`, `Email`, `RoomType`, `Bed`, `NoofRoom`, `cin`, `cout`, `noofdays`, `roomtotal`, `bedtotal`, `meal`, `mealtotal`, `finaltotal`) VALUES
-(41, 'Bao Ngo', 'bao992001pth@gmail.com', 'Single Room', 'Single', 1, '2023-12-09', '2024-01-105', 1, 1000.00, 10.00, 'Room only', 0.00, 1010.00);
+(51, 'Minh Ngo', 'minh@gmail.com', 'Guest House', 'Quad', 1, '2023-12-28', '2024-01-05', 8, 12000.00, 480.00, 'Breakfast', 960.00, 13440.00),
+(58, 'Ngo Quang A', 'A@gmail.com', 'Superior Room', 'Single', 1, '2024-01-05', '2024-01-07', 2, 6000.00, 60.00, 'Full Board', 240.00, 6300.00),
+(59, 'Ngo Quang B', 'B@gmail.com', 'Deluxe Room', 'Single', 2, '2024-01-05', '2024-01-08', 3, 12000.00, 120.00, 'Breakfast', 120.00, 12240.00);
 
 -- --------------------------------------------------------
 
@@ -80,15 +82,13 @@ CREATE TABLE `room` (
   `id` int(30) NOT NULL,
   `type` varchar(50) NOT NULL,
   `bedding` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `room`
 --
 
 INSERT INTO `room` (`id`, `type`, `bedding`) VALUES
-(4, 'Superior Room', 'Single'),
-(6, 'Superior Room', 'Triple'),
 (7, 'Superior Room', 'Quad'),
 (8, 'Deluxe Room', 'Single'),
 (9, 'Deluxe Room', 'Double'),
@@ -103,7 +103,13 @@ INSERT INTO `room` (`id`, `type`, `bedding`) VALUES
 (23, 'Deluxe Room', 'Single'),
 (24, 'Deluxe Room', 'Triple'),
 (27, 'Guest House', 'Double'),
-(30, 'Deluxe Room', 'Single');
+(30, 'Deluxe Room', 'Single'),
+(31, '', ''),
+(32, '', ''),
+(33, '', ''),
+(34, 'Superior Room', 'Single'),
+(35, 'Deluxe Room', 'Single'),
+(36, 'Deluxe Room', 'Single');
 
 -- --------------------------------------------------------
 
@@ -125,14 +131,16 @@ CREATE TABLE `roombook` (
   `cout` date NOT NULL,
   `nodays` int(50) NOT NULL,
   `stat` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `roombook`
 --
 
 INSERT INTO `roombook` (`id`, `Name`, `Email`, `Country`, `Phone`, `RoomType`, `Bed`, `Meal`, `NoofRoom`, `cin`, `cout`, `nodays`, `stat`) VALUES
-(41, 'Bao Ngo', 'bao992001pth@gmail.co,', 'VietNam', '0385633120', 'Single Room', 'Single', 'Room only', '1', '2023-12-09', '2024-01-05', 1, 'Confirm');
+(53, 'Nguyen Van A', 'van@gmail.com', 'Vietnam', '01223213214', 'Single Room', 'Single', 'Full Board', '1', '2024-01-03', '2024-01-05', 2, 'Confirm'),
+(58, 'Ngo Quang A', 'A@gmail.com', 'Vietnam', '0385633120', 'Superior Room', 'Single', 'Full Board', '1', '2024-01-05', '2024-01-07', 2, 'Confirm'),
+(59, 'Ngo Quang B', 'B@gmail.com', 'Sweden', '0385633121', 'Deluxe Room', 'Single', 'Breakfast', '2', '2024-01-05', '2024-01-08', 3, 'Confirm');
 
 -- --------------------------------------------------------
 
@@ -145,13 +153,19 @@ CREATE TABLE `signup` (
   `Username` varchar(50) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `signup`
 --
+
 INSERT INTO `signup` (`UserID`, `Username`, `Email`, `Password`) VALUES
-(1, 'bao', 'bao992001pth@gmail.com', '123');
+(12, 'bao', 'bao992001pth@gmail.com', '$2y$10$2YKHhJkIENCvMENMfY5hhOsTNH36WiRic.cU5f74CdwGdeQcELQgm'),
+(13, 'bao', 'bao892001pth@gmail.com', '$2y$10$ws.nap4zIqykQ3Hq6HvuS.IjGSwz3XO5DYYL2THLBcHpyNknCX/9K'),
+(14, 'minh', 'minh@gmail.com', '$2y$10$/UqJnObwm0vUNW9gnvySvugL8C8DfVjZLb8omi1J15NjtFw3ba2nq'),
+(15, 'bao89', 'bao123@gmail.com', '$2y$10$qlK1.g3IZxBk5rWTTdhjy.tRDVvpyrYN31Zj2/2vteB6UUY1UpYtO'),
+(16, 'QuangA', 'A@gmail.com', '$2y$10$mgc1GE8UhmLccZo8mWhLiub.1ps0lOqQsUOJGE5BnY0aDzrbxUp1S'),
+(17, 'C', 'c@gmail.com', '$2y$10$TAuUtHM8.Tl2.rZDgZXvPeY7tTwOZharqpVGMV25lbf2oDDMk9nDW');
 
 -- --------------------------------------------------------
 
@@ -163,7 +177,7 @@ CREATE TABLE `staff` (
   `id` int(30) NOT NULL,
   `name` varchar(30) NOT NULL,
   `work` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `staff`
@@ -171,15 +185,16 @@ CREATE TABLE `staff` (
 
 INSERT INTO `staff` (`id`, `name`, `work`) VALUES
 (1, 'Bao Ngo', 'Manager'),
-(3, 'rohit patel', 'Cook'),
 (4, 'Dipak', 'Cook'),
 (5, 'tirth', 'Helper'),
 (6, 'mohan', 'Helper'),
 (7, 'shyam', 'cleaner'),
 (8, 'rohan', 'weighter'),
-(9, 'hiren', 'weighter'),
 (10, 'nikunj', 'weighter'),
-(11, 'rekha', 'Cook');
+(12, 'Minh', 'cleaner'),
+(13, 'Luis', 'Cook'),
+(14, 'Ramsey', 'Chef'),
+(15, 'QuangB', 'Helper');
 
 --
 -- Indexes for dumped tables
@@ -235,25 +250,25 @@ ALTER TABLE `emp_login`
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `roombook`
 --
 ALTER TABLE `roombook`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `signup`
 --
 ALTER TABLE `signup`
-  MODIFY `UserID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `UserID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
